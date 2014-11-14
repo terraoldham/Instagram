@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C11E0D61A1598D700A5B486 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11E0D51A1598D700A5B486 /* PhotosViewController.swift */; };
+		0C11E0D81A159C2900A5B486 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11E0D71A159C2900A5B486 /* PhotoTableViewCell.swift */; };
+		0C11E0DB1A15A4F300A5B486 /* objectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C11E0DA1A15A4F300A5B486 /* objectiveC.m */; };
 		0C42D1781A159409000A9B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42D1771A159409000A9B49 /* AppDelegate.swift */; };
 		0C42D17A1A159409000A9B49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42D1791A159409000A9B49 /* ViewController.swift */; };
 		0C42D17D1A159409000A9B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C42D17B1A159409000A9B49 /* Main.storyboard */; };
@@ -29,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		0C11E0D51A1598D700A5B486 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		0C11E0D71A159C2900A5B486 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		0C11E0D91A15A4F300A5B486 /* Instagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram-Bridging-Header.h"; sourceTree = "<group>"; };
+		0C11E0DA1A15A4F300A5B486 /* objectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objectiveC.m; sourceTree = "<group>"; };
 		0C42D1721A159409000A9B49 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C42D1761A159409000A9B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C42D1771A159409000A9B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,10 +94,13 @@
 				0C42D1771A159409000A9B49 /* AppDelegate.swift */,
 				0C42D1791A159409000A9B49 /* ViewController.swift */,
 				0C42D17B1A159409000A9B49 /* Main.storyboard */,
+				0C11E0DA1A15A4F300A5B486 /* objectiveC.m */,
+				0C11E0D71A159C2900A5B486 /* PhotoTableViewCell.swift */,
 				0C11E0D51A1598D700A5B486 /* PhotosViewController.swift */,
 				0C42D17E1A159409000A9B49 /* Images.xcassets */,
 				0C42D1801A159409000A9B49 /* LaunchScreen.xib */,
 				0C42D1751A159409000A9B49 /* Supporting Files */,
+				0C11E0D91A15A4F300A5B486 /* Instagram-Bridging-Header.h */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -274,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C11E0D81A159C2900A5B486 /* PhotoTableViewCell.swift in Sources */,
+				0C11E0DB1A15A4F300A5B486 /* objectiveC.m in Sources */,
 				0C11E0D61A1598D700A5B486 /* PhotosViewController.swift in Sources */,
 				0C42D17A1A159409000A9B49 /* ViewController.swift in Sources */,
 				0C42D1781A159409000A9B49 /* AppDelegate.swift in Sources */,
@@ -400,9 +410,12 @@
 			baseConfigurationReference = 5028294ED3F9681C5EB6F47C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -411,9 +424,11 @@
 			baseConfigurationReference = F5BCF586BDD2D4FC032F082E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
 			};
 			name = Release;
 		};
