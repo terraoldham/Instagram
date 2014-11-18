@@ -26,10 +26,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ncF-Hp-QEl">
                                                     <rect key="frame" x="10" y="8" width="300" height="271"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" id="6Pl-zB-WzY">
+                                                    <rect key="frame" x="28" y="19" width="250" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heartView" destination="6Pl-zB-WzY" id="g0l-cz-ZjP"/>
                                             <outlet property="photoView" destination="ncF-Hp-QEl" id="wPw-bt-HJX"/>
                                         </connections>
                                     </tableViewCell>
@@ -66,6 +72,9 @@
             <point key="canvasLocation" x="74" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

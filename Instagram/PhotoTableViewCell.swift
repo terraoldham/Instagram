@@ -9,9 +9,8 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
-    @IBOutlet weak var urlLabel: UILabel!
-
     @IBOutlet weak var photoView: UIImageView!
-
-
+    @IBOutlet weak var heartView: UIImageView!
 }
+
+

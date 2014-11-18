@@ -11,7 +11,9 @@ import UIKit
 class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var photos: NSArray! = []
     @IBOutlet weak var tableView: UITableView!
-
+    var counter: Int = 0
+    var navigationBarAppearance = UINavigationBar.appearance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,9 +23,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.delegate = self
         tableView.dataSource = self
+        navigationBarAppearance.backgroundColor = UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+            var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary!
+            
             self.photos = responseDictionary["data"] as NSArray
             self.tableView.reloadData()
             
@@ -39,9 +43,28 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoTableViewCell
         var photo = photos[indexPath.section] as NSDictionary
         var url = photo.valueForKeyPath("images.low_resolution.url") as String
+        
         cell.photoView.setImageWithURL(NSURL(string: url))
         
+        var tap = UITapGestureRecognizer(target: self, action: "onTap:")
+        tap.numberOfTapsRequired = 2
+        cell.addGestureRecognizer(tap)
+        
         return cell
+    }
+    
+    func onTap(sender: UITapGestureRecognizer){
+        counter = counter + 1
+        println(counter)
+        var cell = sender.view as PhotoTableViewCell
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            cell.heartView.alpha = 1
+        }) { (Bool) -> Void in
+            UIView.animateWithDuration(0.8, animations: { () -> Void in
+                cell.heartView.alpha = 0
+            })
+            
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,6 +78,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         headerView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        
         
         var photo = photos[section] as NSDictionary
         var user = photo["user"] as NSDictionary
